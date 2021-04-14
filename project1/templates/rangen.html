@@ -1,2 +1,19 @@
 {% extends 'base.html' %}
+{% block title %}
+    Random Generator
+{% endblock %}
 
+{% block content %}
+	<h1>This is a Random Generator.</h1>
+	Random number: {{ random_int }}
+
+	<form method="POST">
+		{{ form.a.label() }}
+		{{ form.a }}
+		{{ form.b.label() }}
+		{{ form.b }}
+		{{ form.submit.label() }}
+		{{ form.submit }}
+	</form>
+
+{% endblock %}
