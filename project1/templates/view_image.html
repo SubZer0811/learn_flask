@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}
+    Random Generator
+{% endblock %}
+
+{% block content %}
+
+	<img src="{{ url_for('view_image', img_path=img_path) }}">
+
+{% endblock %}

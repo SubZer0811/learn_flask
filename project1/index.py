@@ -3,6 +3,9 @@ from forms import generate_rand_int
 import random
 import os
 import cv2
+import numpy as np
+import time
+import dnn
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '12345678'
@@ -31,12 +34,9 @@ def upload_image():
 			image = request.files['file']
 			filename = image.filename
 			image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-			print("TESTSETTESTSETASDFASET")
-			img = cv2.imread(f'static/uploads/{filename}')
-			print(img)
-			img = cv2.circle(img, (500, 500), 200, (150, 150, 150))
-			cv2.imwrite(f'static/uploads/{filename}_test', img)
-			return render_template('upload_image.html', filename=filename+'_test')
+			infer_img = dnn.load_image(app.config['UPLOAD_FOLDER'] + filename)
+			cv2.imwrite(app.config['UPLOAD_FOLDER'] + filename + "_out", infer_img)
+			return render_template('upload_image.html', filename=filename + "_out")
 
 if __name__ == '__main__':
 	app.run()
