@@ -1,2 +1,5 @@
 __pycache__/
 static/uploads/*
+env/
+flask-env/rm 
+static/dnn/yolov3.weights
