@@ -1,31 +1,30 @@
 {% extends 'base.html' %}
 {% block title %}
-    Upload Image
+DNN - COCO
 {% endblock %}
 
 {% block content %}
-	
+<br><br>
+<body class="text-center">
+	<div class="container">
+		<h2>Select an image to upload for inference using yolov3 trained on COCO dataset.</h2>
 
-
-<!doctype html>
-<title>Python Flask File Upload Example</title>
-<h2>Select a file to upload</h2>
-
-{% if filename %}
-	<div>
-		<img src="{{ url_for('static', filename='uploads/' + filename) }}">
+		{% if filename %}
+		<div>
+			<img src="{{ url_for('static', filename='uploads/' + filename) }}">
+		</div>
+		<br><br>
+		{% endif %}
+		<form method="POST" action="/upload_image" enctype="multipart/form-data">
+			<dl>
+				<p>
+					<input type="file" name="file" autocomplete="off" required>
+				</p>
+			</dl>
+			<p>
+				<input type="submit" value="Submit">
+			</p>
+		</form>
 	</div>
-{% endif %}
-<form method="POST" action="/upload_image" enctype="multipart/form-data">
-    <dl>
-		<p>
-			<input type="file" name="file" autocomplete="off" required>
-		</p>
-    </dl>
-    <p>
-		<input type="submit" value="Submit">
-	</p>
-</form>
-
-
+</body>
 {% endblock %}
