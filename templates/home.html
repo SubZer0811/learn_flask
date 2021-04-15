@@ -4,5 +4,15 @@
 {% endblock %}
 
 {% block content %}
-	<h1>This is the homepage.</h1>
+<body class="text-center">
+	<div class="container">
+		<br>
+		<h1>Homepage</h1>
+		<br><br>
+		<a class="btn btn-danger" style="border-radius: 10px;
+		width:50%; font-size:30px; margin: 20px 20px 20px 20px;" href="{{ url_for('upload_image') }}" role="button"><br><br>Object Detection | YOLOv3 | COCO Dataset<br><br><br></a>
+		<a class="btn btn-light" style="border-radius: 10px;
+		width:50%; font-size:30px" href="#" role="button"><br><br>Random Number Generator<br><br><br></a>
+	</div>
+</body>
 {% endblock %}
